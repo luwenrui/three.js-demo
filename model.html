@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>博克</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/three.min.js"></script>
+    <script type="text/javascript" src="js/OrbitControls.js"></script>
+    <script type="text/javascript" src="js/DDSLoader.js"></script>
+    <script type="text/javascript" src="js/OBJLoader.js"></script>
+    <script type="text/javascript" src="js/OBJMTLLoader.js"></script>
+    <script type="text/javascript" src="js/dat.gui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/model.css" type="text/css">
+    <link rel='stylesheet' href="css/animate.min.css" type='text/css'>
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="customization ">
+    <div style="text-align:center;width: 100%">
+        <div class="occupied"></div>
+        <h5 class="module_h5_title">3D定制</h5>
+        <p class="module_h5_title_ENG">3D customization</p>
+    </div>
+    <section class='middle_3d_select'>
+        <div class="flex_center">
+            <p>西装</p>
+            <p>衬衫</p>
+            <p class='middle_3d_select_click'>马甲</p>
+        </div>
+    </section>
+    <div class="flex_center">
+        <section class="left hidden_dom">
+            <div class="customization_img">
+                <img class='ima1' src="img/home/clothes_1.png" name="西装">
+            </div>
+            <br>
+            <div class="customization_img">
+                <img class='ima2' src="img/home/clothes_2.png" name="衬衫">
+            </div>
+            <br>
+            <div class="customization_img customization_div_hover">
+                <img class='ima3' src="img/home/clothes_3.png" name="马甲">
+            </div>
+        </section>
+        <div id="WebGL-output"></div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    $(function () {
+
+
+        class three_load_obj {
+
+            constructor(objpath, jpgpath) {
+
+                this.scene = new THREE.Scene();
+                this.width = document.getElementById('WebGL-output').clientWidth;
+                this.height = document.getElementById('WebGL-output').clientHeight;
+                if ($(window).width() <= 768) {
+                    this.width = window.innerWidth;
+                    this.height = window.innerHeight;
+                }
+                if ($(window).width() < 1000 && $(window).width() >= 768) {
+
+                    $('#WebGL-output').css({
+                        'display': 'flex',
+                        'justify-content': 'center',
+                        'align-items': 'center',
+                        'margin-top': '30%'
+                    })
+                }
+                this.camera = new THREE.PerspectiveCamera(20, this.width / this.height, 1, 10000);
+                this.camera.filmOffset =2;
+                this.renderer = new THREE.WebGLRenderer({
+                    antialias: true,
+                    alpha:true
+                });
+                this.isfinish = false;
+                this.objpath = objpath;
+                this.jpgpath = jpgpath;
+                this.init();
+            }
+
+            init() {
+
+                this.renderer.setClearColor(0xffffff);
+                this.renderer.setSize(this.width, this.height);
+                this.renderer.shadowMapEnabled = false;
+
+
+                this.camera.castShadow = false;
+
+                this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+                this.controls.rotateSpeed = 2;
+                this.controls.enableDamping = true;
+                this.controls.dampingFactor = 1;
+                this.controls.enablePan = false;
+                this.controls.enableZoom = false;
+                this.controls.minPolarAngle = 1.6;
+                this.controls.maxPolarAngle = 1.4;
+                this.controls.autoRotate = true;
+                this.controls.autoRotateSpeed = 3.0;
+
+                new THREE.PlaneGeometry(40, 20);
+                new THREE.MeshLambertMaterial({
+                    color: 0x000000
+                });
+
+
+                const ambientLight = new THREE.AmbientLight(0xffffff);
+                ambientLight.intensity = 0.6;
+                this.scene.add(ambientLight);
+
+                const light = new THREE.DirectionalLight(0xdfebff, 1);
+                light.shadow.mapSize.width = 0;
+                light.shadow.mapSize.height = 0;
+                light.position.set(0, 1, 0);
+                light.position.multiplyScalar(1);
+                light.castShadow = false;
+                this.scene.add(light);
+
+                //
+                var target = new THREE.Object3D();
+                target.position.set(1, 1, 1);
+                this.scene.add(target);
+                var spotLight = new THREE.SpotLight(0xffffff);
+                spotLight.intensity=0.1;
+                spotLight.position.set(-10, -100, -10);
+                spotLight.castShadow = false;
+                spotLight.target = target;
+                this.scene.add(spotLight);
+
+
+                this.load_obj();
+
+
+            }
+
+            load_obj() {
+
+
+                const mtlLoader = new THREE.MTLLoader();
+                mtlLoader.castShadow = false;
+                mtlLoader.setPath('model/');
+                const objLoader = new THREE.OBJLoader();
+                objLoader.setPath('model/');
+
+                let jpgpath = this.jpgpath;
+                let objpath = this.objpath;
+                const that = this;
+
+
+                // model load time
+                let onProgress = function (xhr) {
+                    if (xhr.lengthComputable) {
+                        var percentComplete = xhr.loaded / xhr.total * 100;
+
+                        setTimeout(() => {
+                            if (percentComplete === 100) {
+                                that.isfinish = true;
+                                that.initHTML()
+                            }
+                        }, 100)
+                    }
+                };
+
+                let onError = function (xhr) {
+                };
+
+                objLoader.load(objpath, function (object) {
+                    let geometry = object;
+                    let globalObject = geometry;
+                    geometry.traverse(function (child) {
+                        if (child instanceof THREE.Mesh) {
+                            child.material.map = THREE.ImageUtils.loadTexture(jpgpath);
+                            child.material.needsUpdate = true;
+                        }
+                    });
+                    object.position.y = -12.5;
+                    if (window.innerWidth < 1000) {
+                        object.position.y = -8;
+                    }
+                    object.position.x = 0;
+                    object.rotation.y = 0;
+                    object.scale.set(1, 1, 1);
+                    that.scene.add(object);
+                }, onProgress, onError);
+
+
+            }
+
+            initHTML() {
+
+                this.camera.position.x = 0;
+                this.camera.position.y = 0;
+                this.camera.position.z = 25;
+
+                if (window.innerWidth < 1000) {
+                    this.camera.position.z = 50;
+                }
+
+                this.camera.lookAt(this.scene.position);
+
+                if (this.isfinish) {
+
+                    $("#WebGL-output").append(this.renderer.domElement);
+                }
+
+
+                const that = this;
+                renderScene();
+
+                function renderScene() {
+                    const clock = new THREE.Clock();
+                    clock.getDelta();
+                    that.controls.update();
+                    requestAnimationFrame(renderScene);
+                    that.renderer.render(that.scene, that.camera);
+                }
+            }
+        }
+
+        const objload = new three_load_obj(objpath = 'MJ.obj', jpgpath = './model/gw002.jpg');
+        $(window).resize(function () {
+            objload.renderer.setSize(objload.width, objload.height)
+        });
+
+
+        $('.customization_img').click(function () {
+            $(this).removeClass('customization_img');
+            $(this).addClass('customization_div_hover');
+            $(this).siblings().removeClass('customization_div_hover');
+        });
+        const clotheesType = (type) => {
+            if (type === '西装') {
+                $('#WebGL-output').empty();
+                new three_load_obj('XZ.obj', './model/XZ_C.jpg');
+            }
+            if (type === '衬衫') {
+                $('#WebGL-output').empty();
+                new three_load_obj('CY.obj', './model/gw003.jpg');
+            }
+            if (type === '马甲') {
+                $('#WebGL-output').empty();
+                new three_load_obj('MJ.obj', './model/gw002.jpg');
+            }
+        };
+
+        $('.customization_img img').click(function () {
+
+            clotheesType($(this).attr('name'))
+        });
+        $('.middle_3d_select  p').click(function () {
+
+            $(this).removeClass('customization_img');
+            $(this).addClass('middle_3d_select_click');
+            $(this).siblings().removeClass('middle_3d_select_click');
+            clotheesType($(this).html())
+        });
+
+
+        if ($(window).width() <= 1200) {
+            $('.hidden_dom').hide();
+            $('.middle_3d_select').show();
+        } else {
+            $('.hidden_dom').show();
+            $('.middle_3d_select').hide();
+        }
+
+    })
+</script>
+
+</html>
