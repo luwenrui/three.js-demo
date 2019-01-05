@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5dabe357-b63f-4da5-bcdd-f6f9ea365e20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="5dabe357-b63f-4da5-bcdd-f6f9ea365e20" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/media_1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/model.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/model.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/model.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/swiper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/home/clothes_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/home/clothes_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/home/clothes_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/DDSLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/Detector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/LoaderSupport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/MTLLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/OBJLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/OBJLoader2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/OBJMTLLoader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/OrbitControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/TrackballControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/dat.gui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery-2.0.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery.SuperSlide.2.1.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/nav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/stats.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/swiper-4.4.6.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/swiper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/three.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/three.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/CY.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/MJ.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/XZ.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/XZ_C.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/gw002.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/gw003.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="F:/index.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,15 +52,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor>
-                <caret column="28" selection-start-column="28" selection-end-column="28" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/model.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -32,12 +65,14 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="F:/" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/css/model.css" />
       </list>
     </option>
   </component>
@@ -53,6 +88,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -64,7 +100,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -72,7 +107,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\demo\three.js-demo" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -88,6 +128,7 @@
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\lenovo\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -96,24 +137,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1546670439322</updated>
-      <workItem from="1546670440955" duration="117000" />
+      <workItem from="1546670440955" duration="932000" />
+      <workItem from="1546672115958" duration="519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117000" />
+    <option name="totallyTimeSpent" value="1451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32960895" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -121,22 +158,52 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32960895" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.2533512" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/model.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor>
-            <caret column="28" selection-start-column="28" selection-end-column="28" />
+          <first_editor relative-caret-position="38">
+            <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
